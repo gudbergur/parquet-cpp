@@ -24,17 +24,20 @@
 message(STATUS "THRIFT_HOME: $ENV{THRIFT_HOME}")
 find_path(THRIFT_INCLUDE_DIR thrift/Thrift.h HINTS
   $ENV{THRIFT_HOME}/include/
+  $ENV{THRIFT_HOME}/lib/cpp/src/
   /usr/local/include/
   /opt/local/include/
 )
 
-find_path(THRIFT_CONTRIB_DIR share/fb303/if/fb303.thrift HINTS
-  $ENV{THRIFT_HOME}
-  /usr/local/
+find_path(THRIFT_CONTRIB_DIR fb303/if/fb303.thrift HINTS
+  $ENV{THRIFT_HOME}/share/
+  $ENV{THRIFT_HOME}/contrib/
+  /usr/local/share/
 )
 
 set(THRIFT_LIB_PATHS
   $ENV{THRIFT_HOME}/lib
+  $ENV{THRIFT_HOME}/lib/cpp/.libs/
   /usr/local/lib
   /opt/local/lib)
 
