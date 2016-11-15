@@ -28,6 +28,10 @@ if (PARQUET_BUILD_EXECUTABLES)
   target_link_libraries(parquet_reader ${LINK_LIBS}
 	parquet_static)
 
+  add_executable(parquet_writer parquet_writer.cc)
+  target_link_libraries(parquet_writer ${LINK_LIBS}
+	parquet_static)
+
   add_executable(parquet-scan parquet-scan.cc)
   target_link_libraries(parquet-scan ${LINK_LIBS}
 	parquet_static)
